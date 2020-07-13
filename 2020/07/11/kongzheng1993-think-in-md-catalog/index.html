@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>交易消息示例 | Evil</title>
-  <meta name="keywords" content=" RocketMQ ">
-  <meta name="description" content="交易消息示例 | Evil">
+  <title>由一次github README.md引发的思考 | Evil</title>
+  <meta name="keywords" content=" other ">
+  <meta name="description" content="由一次github README.md引发的思考 | Evil">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了可以和更多的人交流学习，将博客搬至CSDN。">
 <meta name="keywords" content="blog">
@@ -1514,9 +1514,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-kongzheng1993-OpenMessageing_Example" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-kongzheng1993-think-in-md-catalog" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">交易消息示例</h1>
+        <h1 class="article-title">由一次github README.md引发的思考</h1>
     
     <div class="article-meta">
         
@@ -1524,26 +1524,26 @@
         
         <span class="book">
             
-                <a  data-rel="RocketMQ">RocketMQ</a>
+                <a  data-rel="other">other</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">RocketMQ</a>
+            <a class="color1">other</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-06-29 13:41:51'>2020-04-10 00:30</time>
+        创建时间:<time class="date" title='更新时间: 2020-07-13 09:48:22'>2020-07-11 00:30</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:948</span>
+        <span>字数:356</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1573,7 +1573,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#交易消息示例"><span class="toc-text">交易消息示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是交易消息"><span class="toc-text">什么是交易消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用限制"><span class="toc-text">使用限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1，交易状态"><span class="toc-text">1，交易状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2，发送交易信息"><span class="toc-text">2，发送交易信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2，1-创建事务生产方"><span class="toc-text">2，1 创建事务生产方</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2，2实现TransactionListener接口"><span class="toc-text">2，2实现TransactionListener接口</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用vscode打开试试？"><span class="toc-text">用vscode打开试试？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察github点击目录标题后的变化"><span class="toc-text">观察github点击目录标题后的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1589,93 +1589,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="交易消息示例"><a href="#交易消息示例" class="headerlink" title="交易消息示例"></a>交易消息示例</h1><h2 id="什么是交易消息"><a href="#什么是交易消息" class="headerlink" title="什么是交易消息"></a>什么是交易消息</h2><p>可以将其视为两阶段提交消息实现，以确保分布式系统中的最终一致性。事务性消息可确保本地事务的执行和消息的发送能以原子方式执行。</p>
-<h2 id="使用限制"><a href="#使用限制" class="headerlink" title="使用限制"></a>使用限制</h2><ol>
-<li>事务消息没有时间表和批处理支持。</li>
-<li>为了避免对单个消息进行过多的检查并导致半个队列的消息堆积，我们默认将单个消息的检查数量限制为15次，但是用户可以通过更改<code>transactionCheckMax</code>来更改此限制。如果一条消息经过<code>transactionCheckMax</code>次检查，默认情况下，代理将丢弃此消息并同时打印错误日志。用户可以通过覆盖<code>AbstractTransactionCheckListener</code>类来更改此行为。</li>
-<li>将<code>broker</code>配置中由参数<code>transactionTimeout</code>来确定一定时间后检查交易消息。用户还可以在发送事务消息时通过设置用户属性<code>CHECK_IMMUNITY_TIME_IN_SECONDS</code>来更改此限制，该参数优先于<code>transactionMsgTimeout</code>参数。</li>
-<li>交易消息可能被检查或消耗了不止一次。</li>
-<li>提交给用户目标主题的已提交消息可能会失败。目前，它取决于日志记录。RocketMQ本身的高可用性机制可确保高可用性。如果要确保事务消息不会丢失并且事务完整性得到保证，建议使用同步双写机制。</li>
-<li>事务性消息的生产者ID不能与其他类型的消息的生产者ID共享。与其他类型的消息不同，事务性消息允许向后查询。MQ服务器通过生产者ID查询客户端。</li>
-</ol>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="1，交易状态"><a href="#1，交易状态" class="headerlink" title="1，交易状态"></a>1，交易状态</h3><p>事务消息有三种状态：</p>
-<ul>
-<li>TransactionStatus.CommitTransaction：提交事务，表示允许使用者使用此消息。</li>
-<li>TransactionStatus.RollbackTransaction：回滚事务，表示该消息将被删除且不允许使用。</li>
-<li>TransactionStatus.Unknown：中间状态，表示需要MQ进行回溯以确定状态。</li>
-</ul>
-<h3 id="2，发送交易信息"><a href="#2，发送交易信息" class="headerlink" title="2，发送交易信息"></a>2，发送交易信息</h3><h4 id="2，1-创建事务生产方"><a href="#2，1-创建事务生产方" class="headerlink" title="2，1 创建事务生产方"></a>2，1 创建事务生产方</h4><p>使用<code>TransactionMQProducer</code>类创建生产方客户端，并指定唯一的<code>producerGroup</code>，然后可以设置自定义线程池来处理检查请求。执行本地事务后，需要根据执行结果对MQ进行回复，回复状态如上节所述。</p>
-<pre><code class="java">import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
-import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
-import org.apache.rocketmq.common.message.MessageExt;
-import java.util.List;
-
-public class TransactionProducer {
-    public static void main(String[] args) throws MQClientException, InterruptedException {
-        TransactionListener transactionListener = new TransactionListenerImpl();
-        TransactionMQProducer producer = new TransactionMQProducer(&quot;please_rename_unique_group_name&quot;);
-        ExecutorService executorService = new ThreadPoolExecutor(2, 5, 100, TimeUnit.SECONDS, new ArrayBlockingQueue&lt;Runnable&gt;(2000), new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread thread = new Thread(r);
-                thread.setName(&quot;client-transaction-msg-check-thread&quot;);
-                return thread;
-            }
-        });
-
-        producer.setExecutorService(executorService);
-        producer.setTransactionListener(transactionListener);
-        producer.start();
-
-        String[] tags = new String[] {&quot;TagA&quot;, &quot;TagB&quot;, &quot;TagC&quot;, &quot;TagD&quot;, &quot;TagE&quot;};
-        for (int i = 0; i &lt; 10; i++) {
-            try {
-                Message msg =
-                    new Message(&quot;TopicTest1234&quot;, tags[i % tags.length], &quot;KEY&quot; + i,
-                        (&quot;Hello RocketMQ &quot; + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
-                SendResult sendResult = producer.sendMessageInTransaction(msg, null);
-                System.out.printf(&quot;%s%n&quot;, sendResult);
-
-                Thread.sleep(10);
-            } catch (MQClientException | UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }
-
-        for (int i = 0; i &lt; 100000; i++) {
-            Thread.sleep(1000);
-        }
-        producer.shutdown();
-    }
-}</code></pre>
-<h4 id="2，2实现TransactionListener接口"><a href="#2，2实现TransactionListener接口" class="headerlink" title="2，2实现TransactionListener接口"></a>2，2实现TransactionListener接口</h4><p>当发送一半消息成功时，使用<code>executeLocalTransaction</code>方法执行本地事务。它返回上一部分中提到的三个事务状态之一。<br><code>checkLocalTransaction</code>方法用于检查本地事务状态并响应MQ检查请求。它还返回上一部分中提到的三个事务状态之一。</p>
-<pre><code class="java">public class TransactionListenerImpl implements TransactionListener {
-   private AtomicInteger transactionIndex = new AtomicInteger(0);
-      private ConcurrentHashMap&lt;String, Integer&gt; localTrans = new ConcurrentHashMap&lt;&gt;();
-      @Override
-   public LocalTransactionState executeLocalTransaction(Message msg, Object arg) {
-       int value = transactionIndex.getAndIncrement();
-       int status = value % 3;
-       localTrans.put(msg.getTransactionId(), status);
-       return LocalTransactionState.UNKNOW;
-   }
-      @Override
-   public LocalTransactionState checkLocalTransaction(MessageExt msg) {
-       Integer status = localTrans.get(msg.getTransactionId());
-       if (null != status) {
-           switch (status) {
-               case 0:
-                   return LocalTransactionState.UNKNOW;
-               case 1:
-                   return LocalTransactionState.COMMIT_MESSAGE;
-               case 2:
-                   return LocalTransactionState.ROLLBACK_MESSAGE;
-           }
-       }
-       return LocalTransactionState.COMMIT_MESSAGE;
-   }</code></pre>
+        <p>今天继续整理springcloud，到nacos那块了，然后写完文档，发现目录不好使？？？记得之前看很多大佬的github，README里有的目录点击也没反应。感觉也不能github的bug啊。。。</p>
+<h2 id="用vscode打开试试？"><a href="#用vscode打开试试？" class="headerlink" title="用vscode打开试试？"></a>用vscode打开试试？</h2><p>之前经常用vscode写blog，就是因为vscode自带markdown的预览，而且也有很多好用的markdown插件。打开试了一下，没问题，能正常跳转。。</p>
+<h2 id="观察github点击目录标题后的变化"><a href="#观察github点击目录标题后的变化" class="headerlink" title="观察github点击目录标题后的变化"></a>观察github点击目录标题后的变化</h2><p>比如我springcloud学习仓库。</p>
+<p>点击前浏览器地址栏为：<code>https://github.com/kongzheng1993/SpringCloudLearn</code></p>
+<p>点击后：<code>https://github.com/kongzheng1993/SpringCloudLearn#Nacos注册中心&amp;配置中心</code></p>
+<p>感觉好像对啊。。</p>
+<p>反复看几遍！标题上有个 <strong>&amp;</strong> ！！！</p>
+<p>再联系我们熟知的http url参数。。</p>
+<p><strong>&amp;</strong> 是分割参数的！！！</p>
+<p>删掉目录和标题中的 <strong>&amp;</strong></p>
+<p>没问题了，正常跳转！</p>
+<pre><code class="text">    + [spring-cloud-stream](#spring-cloud-stream)
+      - [springcloud-stream流程](#springcloud-stream流程)
+      - [使用方法](#使用方法)
+      - [集群重复消费问题](#-集群重复消费问题)
+      - [SpringCloud-stream消息持久化](#springcloud-stream消息持久化)
+    + [springcloud-Sleuth分布式请求链路跟踪](#springcloud-Sleuth分布式请求链路跟踪)
+    + [springcloud-alibaba](#springcloud-alibaba)
+      - [Nacos注册中心配置中心](#Nacos注册中心配置中心)</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>就是因为 <strong>&amp;</strong> 符导致的！浏览器会以为你这里是参数分割。。</p>
+<p>不让我在看到有大佬的README.md有这个问题，有我就提RP [doge]</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kongzheng1993@hotmail.com </span>
@@ -1689,12 +1623,12 @@ public class TransactionProducer {
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>交易消息示例</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">948</span></p>
+    <p><span class="copy-title">文章标题:</span>由一次github README.md引发的思考</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">356</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="evilRat">evilRat</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-10, 00:30:52</p>
-    <p><span class="copy-title">最后更新:</span>2020-06-29, 13:41:51</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/10/kongzheng1993-OpenMessageing_Example/" title="交易消息示例">https://kongzheng1993.github.io/2020/04/10/kongzheng1993-OpenMessageing_Example/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-11, 00:30:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-13, 09:48:22</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/11/kongzheng1993-think-in-md-catalog/" title="由一次github README.md引发的思考">https://kongzheng1993.github.io/2020/07/11/kongzheng1993-think-in-md-catalog/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
