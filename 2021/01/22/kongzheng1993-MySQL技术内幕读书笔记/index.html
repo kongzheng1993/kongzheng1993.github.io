@@ -8,20 +8,18 @@
   <script data-ad-client="ca-pub-8990321486053761" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta name="baidu_union_verify" content="3b2f522004782a6f88e3aa9bb4df0854">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="记得刚毕业后刚上班的时候，写过一段时间的C++，用过GDB来调试程序，其实Java也有相应的远程调试的工具—-JDB 增加JVM配置开启远程调试启动参数中增加： -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=5000,suspend=n,onthrow=java.io.IOExpection,launch=/sbin/echo-Xde">
-<meta name="keywords" content="Java">
+<meta name="description" content="Spring Retry是Spring提供的声明式重试框架。于2.2.0之后从Spring Batch中独立出来。之前用到了spring retry，本来想自己整理下，没想到在网上找到更好的总结，不仅总结了spring retry，而且还是从最简单的while循环的方式开始，到spring retry，再到guava retry，最后自己还搞了一个集二者大成的重试框架。本想搞个链接放在这里，但是怕">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Remote Debug">
-<meta property="og:url" content="https://kongzheng1993.github.io/2021/03/27/kongzheng1993-JavaRemoteDebug/index.html">
+<meta property="og:title" content="Java Retry">
+<meta property="og:url" content="https://kongzheng1993.github.io/2021/03/29/kongzheng1993-JavaRetry/index.html">
 <meta property="og:site_name" content="Evil">
-<meta property="og:description" content="记得刚毕业后刚上班的时候，写过一段时间的C++，用过GDB来调试程序，其实Java也有相应的远程调试的工具—-JDB 增加JVM配置开启远程调试启动参数中增加： -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=5000,suspend=n,onthrow=java.io.IOExpection,launch=/sbin/echo-Xde">
+<meta property="og:description" content="Spring Retry是Spring提供的声明式重试框架。于2.2.0之后从Spring Batch中独立出来。之前用到了spring retry，本来想自己整理下，没想到在网上找到更好的总结，不仅总结了spring retry，而且还是从最简单的while循环的方式开始，到spring retry，再到guava retry，最后自己还搞了一个集二者大成的重试框架。本想搞个链接放在这里，但是怕">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://kongzheng1993.github.io/2021/03/27/kongzheng1993-JavaRemoteDebug/idea_remote_debug.png">
-<meta property="og:updated_time" content="2021-03-27T13:56:52.080Z">
+<meta property="og:updated_time" content="2021-03-30T10:20:25.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Remote Debug">
-<meta name="twitter:description" content="记得刚毕业后刚上班的时候，写过一段时间的C++，用过GDB来调试程序，其实Java也有相应的远程调试的工具—-JDB 增加JVM配置开启远程调试启动参数中增加： -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=5000,suspend=n,onthrow=java.io.IOExpection,launch=/sbin/echo-Xde">
-<meta name="twitter:image" content="https://kongzheng1993.github.io/2021/03/27/kongzheng1993-JavaRemoteDebug/idea_remote_debug.png">
+<meta name="twitter:title" content="Java Retry">
+<meta name="twitter:description" content="Spring Retry是Spring提供的声明式重试框架。于2.2.0之后从Spring Batch中独立出来。之前用到了spring retry，本来想自己整理下，没想到在网上找到更好的总结，不仅总结了spring retry，而且还是从最简单的while循环的方式开始，到spring retry，再到guava retry，最后自己还搞了一个集二者大成的重试框架。本想搞个链接放在这里，但是怕">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -151,22 +149,6 @@
     
         
             
-            <li><div data-rel="linux"><i class="fold iconfont icon-right"></i>linux<small>(1)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="ss">ss<small>(1)</small></div>
-                            
-                        </li>
-                            
-                    </ul>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="suse"><i class="fold iconfont icon-right"></i>suse<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -190,11 +172,11 @@
     
         
             
-            <li><div data-rel="mysql"><i class="fold iconfont icon-right"></i>mysql<small>(3)</small></div>
+            <li><div data-rel="linux"><i class="fold iconfont icon-right"></i>linux<small>(1)</small></div>
                 
                     <ul class="sub hide">
                         
-                        <li><div data-rel="java">java<small>(1)</small></div>
+                        <li><div data-rel="ss">ss<small>(1)</small></div>
                             
                         </li>
                             
@@ -210,21 +192,29 @@
     
         
             
-            <li><div data-rel="Linux">Linux<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
             <li><div data-rel="编码">编码<small>(1)</small></div>
                 
             </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="mysql"><i class="fold iconfont icon-right"></i>mysql<small>(3)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="java">java<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
             
         
     
@@ -257,6 +247,14 @@
     
         
             
+            <li><div data-rel="NIO BIO IO">NIO BIO IO<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
         
     
         
@@ -279,18 +277,6 @@
                     </ul>
                 
             </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="NIO BIO IO">NIO BIO IO<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
             
         
     
@@ -320,6 +306,18 @@
     
         
             
+            <li><div data-rel="Linux">Linux<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
             <li><div data-rel="other">other<small>(3)</small></div>
                 
             </li>
@@ -328,55 +326,11 @@
     
         
             
+        
+    
+        
+            
             <li><div data-rel="MQ">MQ<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="node.js">node.js<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="resume">resume<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="jdk">jdk<small>(1)</small></div>
                 
             </li>
             
@@ -392,6 +346,14 @@
     
         
             
+            <li><div data-rel="node.js">node.js<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="RocketMQ">RocketMQ<small>(2)</small></div>
                 
             </li>
@@ -400,7 +362,23 @@
     
         
             
+        
+    
+        
+            
+        
+    
+        
+            
             <li><div data-rel="Mysql">Mysql<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="SQL">SQL<small>(2)</small></div>
                 
             </li>
             
@@ -416,7 +394,7 @@
     
         
             
-            <li><div data-rel="SQL">SQL<small>(2)</small></div>
+            <li><div data-rel="Ohters">Ohters<small>(1)</small></div>
                 
             </li>
             
@@ -440,31 +418,7 @@
     
         
             
-            <li><div data-rel="Ohters">Ohters<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="maven">maven<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="java">java<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="AI">AI<small>(1)</small></div>
                 
             </li>
             
@@ -480,7 +434,7 @@
     
         
             
-            <li><div data-rel="vue">vue<small>(1)</small></div>
+            <li><div data-rel="java">java<small>(3)</small></div>
                 
             </li>
             
@@ -488,7 +442,19 @@
     
         
             
-            <li><div data-rel="JavaScript">JavaScript<small>(1)</small></div>
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="AI">AI<small>(1)</small></div>
                 
             </li>
             
@@ -496,7 +462,7 @@
     
         
             
-            <li><div data-rel="SpringBoot">SpringBoot<small>(1)</small></div>
+            <li><div data-rel="resume">resume<small>(1)</small></div>
                 
             </li>
             
@@ -504,39 +470,7 @@
     
         
             
-            <li><div data-rel="Spring">Spring<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="算法">算法<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="JDK">JDK<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="分页">分页<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="OS">OS<small>(1)</small></div>
+            <li><div data-rel="jdk">jdk<small>(1)</small></div>
                 
             </li>
             
@@ -562,6 +496,70 @@
             
         
     
+        
+            
+            <li><div data-rel="vue">vue<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JavaScript">JavaScript<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Spring">Spring<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="分页">分页<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="SpringBoot">SpringBoot<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OS">OS<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JDK">JDK<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -573,7 +571,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="103">
-<input type="hidden" id="yelog_site_word_count" value="125k">
+<input type="hidden" id="yelog_site_word_count" value="125.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -613,11 +611,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">re</a>
+        <a class="color3">servlet</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">servlet</a>
+        <a class="color3">re</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -641,14 +639,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color5">catch，try</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">oracle</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color4">sys</a>
     </li>
     
@@ -658,6 +648,10 @@
     
     <li class="article-tag-list-item">
         <a class="color4">sql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">catch，try</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -677,6 +671,46 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color2">oracle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">suse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">server</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">FTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">ss</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color5">java</a>
     </li>
     
@@ -693,39 +727,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">github</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color5">hexo</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">git</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">linux</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">ss</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">console</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color5">suse</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">server</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">FTP</a>
+        <a class="color3">编码</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -737,19 +739,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">mq</a>
+        <a class="color3">职业</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color5">消息队列</a>
+        <a class="color3">业务</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">Linux</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">编码</a>
+        <a class="color3">学习</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -765,15 +763,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">职业</a>
+        <a class="color1">NIO BIO IO</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">业务</a>
+        <a class="color3">mq</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">学习</a>
+        <a class="color5">消息队列</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -793,7 +791,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">NIO BIO IO</a>
+        <a class="color1">Guava</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -801,11 +799,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">Guava</a>
+        <a class="color4">jvm</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">jvm</a>
+        <a class="color1">Linux</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -817,7 +815,59 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color3">node.js</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">RocketMQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">Mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">SQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Ohters</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">MySQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">others</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">maven</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">AI</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -833,86 +883,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">Web</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">RocketMQ</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">Mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">多线程</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">SQL</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">算法</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">tools</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">MySQL</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">others</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">Ohters</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">maven</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">AI</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">vue</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color5">blog</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">JavaScript</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">SpringBoot</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">Spring</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">JDK</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">分页</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">Windows</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color3">网络</a>
     </li>
     
@@ -922,6 +892,34 @@
     
     <li class="article-tag-list-item">
         <a class="color3">并发</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">vue</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">JavaScript</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">分页</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">SpringBoot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Windows</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">JDK</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1046,19 +1044,19 @@
             <span class="post-date" title="2021-01-07 10:30:52">2021/01/07</span>
         </a>
         
-        <a  class="JDK "
-           href="/2020/12/29/kongzheng1993-javax.script/"
-           data-tag="JDK"
-           data-author="" >
-            <span class="post-title" title="JDK自带的脚本引擎javax.script.ScriptEngine">JDK自带的脚本引擎javax.script.ScriptEngine</span>
-            <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
-        </a>
-        
         <a  class="分页 "
            href="/2020/12/29/kongzheng1993-PageHelper/"
            data-tag="分页"
            data-author="" >
             <span class="post-title" title="PageHelper">PageHelper</span>
+            <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
+        </a>
+        
+        <a  class="JDK "
+           href="/2020/12/29/kongzheng1993-javax.script/"
+           data-tag="JDK"
+           data-author="" >
+            <span class="post-title" title="JDK自带的脚本引擎javax.script.ScriptEngine">JDK自带的脚本引擎javax.script.ScriptEngine</span>
             <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
         </a>
         
@@ -1206,19 +1204,19 @@
             <span class="post-date" title="2020-05-18 00:30:52">2020/05/18</span>
         </a>
         
-        <a  class="others "
-           href="/2020/05/12/kongzheng1993-Linux文件句柄/"
-           data-tag="others"
-           data-author="" >
-            <span class="post-title" title="Linux文件句柄">Linux文件句柄</span>
-            <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
-        </a>
-        
         <a  class="Nginx "
            href="/2020/05/12/kongzheng1993-Nginx/"
            data-tag="Nginx"
            data-author="" >
             <span class="post-title" title="Nginx">Nginx</span>
+            <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
+        </a>
+        
+        <a  class="others "
+           href="/2020/05/12/kongzheng1993-Linux文件句柄/"
+           data-tag="others"
+           data-author="" >
+            <span class="post-title" title="Linux文件句柄">Linux文件句柄</span>
             <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
         </a>
         
@@ -1318,19 +1316,19 @@
             <span class="post-date" title="2020-04-19 00:30:52">2020/04/19</span>
         </a>
         
-        <a  class="Java "
-           href="/2020/04/17/kongzheng1993-Java_Monitor/"
-           data-tag="Java"
-           data-author="" >
-            <span class="post-title" title="Java Monitor">Java Monitor</span>
-            <span class="post-date" title="2020-04-17 00:30:52">2020/04/17</span>
-        </a>
-        
         <a  class="Mysql "
            href="/2020/04/17/kongzheng1993-MySQL事务隔离级别/"
            data-tag="Mysql"
            data-author="" >
             <span class="post-title" title="MySQL事务隔离级别">MySQL事务隔离级别</span>
+            <span class="post-date" title="2020-04-17 00:30:52">2020/04/17</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2020/04/17/kongzheng1993-Java_Monitor/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java Monitor">Java Monitor</span>
             <span class="post-date" title="2020-04-17 00:30:52">2020/04/17</span>
         </a>
         
@@ -1407,14 +1405,6 @@
         </a>
         
         <a  class="Java "
-           href="/2020/03/19/kongzheng1993-Future/"
-           data-tag="Java"
-           data-author="" >
-            <span class="post-title" title="Future">Future</span>
-            <span class="post-date" title="2020-03-19 00:30:52">2020/03/19</span>
-        </a>
-        
-        <a  class="Java "
            href="/2020/03/19/kongzheng1993-Thread和Runnable/"
            data-tag="Java"
            data-author="" >
@@ -1422,36 +1412,12 @@
             <span class="post-date" title="2020-03-19 00:30:52">2020/03/19</span>
         </a>
         
-        <a  class="jvm "
-           href="/2020/03/08/kongzheng1993-jmap/"
-           data-tag="jvm"
-           data-author="" >
-            <span class="post-title" title="jmap">jmap</span>
-            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
-        </a>
-        
-        <a  class="Web "
-           href="/2020/03/08/kongzheng1993-URLEncode/"
-           data-tag="Web"
-           data-author="" >
-            <span class="post-title" title="URLEncoder">URLEncoder</span>
-            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
-        </a>
-        
         <a  class="Java "
-           href="/2020/03/08/kongzheng1993-Map遍历的几种方法/"
+           href="/2020/03/19/kongzheng1993-Future/"
            data-tag="Java"
            data-author="" >
-            <span class="post-title" title="关于Map遍历的几种方法总结">关于Map遍历的几种方法总结</span>
-            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
-        </a>
-        
-        <a  class="other "
-           href="/2020/03/08/kongzheng1993-带你撸一台免费云服务器/"
-           data-tag="other"
-           data-author="" >
-            <span class="post-title" title="带你撸一台免费云服务器">带你撸一台免费云服务器</span>
-            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
+            <span class="post-title" title="Future">Future</span>
+            <span class="post-date" title="2020-03-19 00:30:52">2020/03/19</span>
         </a>
         
         <a  class="jvm "
@@ -1463,6 +1429,38 @@
         </a>
         
         <a  class="Java "
+           href="/2020/03/08/kongzheng1993-Map遍历的几种方法/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="关于Map遍历的几种方法总结">关于Map遍历的几种方法总结</span>
+            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
+        </a>
+        
+        <a  class="Web "
+           href="/2020/03/08/kongzheng1993-URLEncode/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="URLEncoder">URLEncoder</span>
+            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
+        </a>
+        
+        <a  class="jvm "
+           href="/2020/03/08/kongzheng1993-jmap/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="jmap">jmap</span>
+            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
+        </a>
+        
+        <a  class="other "
+           href="/2020/03/08/kongzheng1993-带你撸一台免费云服务器/"
+           data-tag="other"
+           data-author="" >
+            <span class="post-title" title="带你撸一台免费云服务器">带你撸一台免费云服务器</span>
+            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
+        </a>
+        
+        <a  class="Java "
            href="/2020/03/06/kongzheng1993-Guava/"
            data-tag="Guava"
            data-author="" >
@@ -1470,19 +1468,19 @@
             <span class="post-date" title="2020-03-06 00:30:52">2020/03/06</span>
         </a>
         
-        <a  class="mysql "
-           href="/2019/09/11/kongzheng1993-MySQL/"
-           data-tag="mysql"
-           data-author="" >
-            <span class="post-title" title="MySQL">MySQL</span>
-            <span class="post-date" title="2019-09-11 18:30:52">2019/09/11</span>
-        </a>
-        
         <a  class="NIO BIO IO "
            href="/2019/09/11/kongzheng1993-NIO&BIO/"
            data-tag="NIO BIO IO"
            data-author="" >
             <span class="post-title" title="NIO&amp;BIO">NIO&amp;BIO</span>
+            <span class="post-date" title="2019-09-11 18:30:52">2019/09/11</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/09/11/kongzheng1993-MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL">MySQL</span>
             <span class="post-date" title="2019-09-11 18:30:52">2019/09/11</span>
         </a>
         
@@ -1639,6 +1637,14 @@
         </a>
         
         <a  class=""
+           href="/2016/07/26/kongzheng1993-servlet/"
+           data-tag="servlet"
+           data-author="" >
+            <span class="post-title" title="Servlet">Servlet</span>
+            <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
+        </a>
+        
+        <a  class=""
            href="/2016/07/26/kongzheng1993-请求转发与重定向/"
            data-tag="re"
            data-author="" >
@@ -1651,14 +1657,6 @@
            data-tag="re"
            data-author="" >
             <span class="post-title" title="centos 7 安装mysql遇到的问题">centos 7 安装mysql遇到的问题</span>
-            <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
-        </a>
-        
-        <a  class=""
-           href="/2016/07/26/kongzheng1993-servlet/"
-           data-tag="servlet"
-           data-author="" >
-            <span class="post-title" title="Servlet">Servlet</span>
             <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
         </a>
         
@@ -1679,18 +1677,18 @@
         </a>
         
         <a  class=""
-           href="/2016/07/11/kongzheng1993-String_Original/"
-           data-tag="String,new"
-           data-author="" >
-            <span class="post-title" title="String str">String str</span>
-            <span class="post-date" title="2016-07-11 00:00:00">2016/07/11</span>
-        </a>
-        
-        <a  class=""
            href="/2016/07/11/kongzheng1993-ablout_try_catch/"
            data-tag="catch，try"
            data-author="" >
             <span class="post-title" title="关于try-catch">关于try-catch</span>
+            <span class="post-date" title="2016-07-11 00:00:00">2016/07/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2016/07/11/kongzheng1993-String_Original/"
+           data-tag="String,new"
+           data-author="" >
+            <span class="post-title" title="String str">String str</span>
             <span class="post-date" title="2016-07-11 00:00:00">2016/07/11</span>
         </a>
         
@@ -1735,18 +1733,18 @@
         </a>
         
         <a  class=""
-           href="/2016/06/10/kongzheng1993-oracle/"
-           data-tag="sql,select,distinct,group by,order by"
-           data-author="" >
-            <span class="post-title" title="sql学习笔记">sql学习笔记</span>
-            <span class="post-date" title="2016-06-10 00:00:00">2016/06/10</span>
-        </a>
-        
-        <a  class=""
            href="/2016/06/10/kongzheng1993-aboutFloat/"
            data-tag="float"
            data-author="" >
             <span class="post-title" title="关于float">关于float</span>
+            <span class="post-date" title="2016-06-10 00:00:00">2016/06/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2016/06/10/kongzheng1993-oracle/"
+           data-tag="sql,select,distinct,group by,order by"
+           data-author="" >
+            <span class="post-title" title="sql学习笔记">sql学习笔记</span>
             <span class="post-date" title="2016-06-10 00:00:00">2016/06/10</span>
         </a>
         
@@ -1794,12 +1792,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2021-03-24 11:29:20'>2021-01-22 10:30</time>
+        创建时间:<time class="date" title='更新时间: 2021-04-02 10:47:26'>2021-01-22 10:30</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:8.6k</span>
+        <span>字数:9.4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1829,7 +1827,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-MySQL体系结构和存储引擎"><span class="toc-text">第一章 MySQL体系结构和存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Mysql体系结构"><span class="toc-text">1. Mysql体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL存储引擎"><span class="toc-text">2. MySQL存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-InnoDB存储引擎"><span class="toc-text">1. InnoDB存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MyISAM存储引擎"><span class="toc-text">2. MyISAM存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-其他存储引擎"><span class="toc-text">3. 其他存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-其它"><span class="toc-text">4. 其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-连接MySQL"><span class="toc-text">3. 连接MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-TCP-IP"><span class="toc-text">1. TCP/IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-命名管道和共享内存"><span class="toc-text">2. 命名管道和共享内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-UNIX域套接字"><span class="toc-text">3. UNIX域套接字</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-InnoDB存储引擎"><span class="toc-text">第二章 InnoDB存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-InnoDB存储引擎概述"><span class="toc-text">1. InnoDB存储引擎概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-InnoDB存储引擎的版本"><span class="toc-text">2. InnoDB存储引擎的版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-InnoDB体系架构"><span class="toc-text">3. InnoDB体系架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-后台线程"><span class="toc-text">1. 后台线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-内存"><span class="toc-text">2. 内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-缓冲池"><span class="toc-text">1. 缓冲池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-LRU-List、Free-List和Flush-List"><span class="toc-text">2. LRU List、Free List和Flush List</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-重做日志缓冲"><span class="toc-text">3. 重做日志缓冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-额外的内存池"><span class="toc-text">4. 额外的内存池</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Checkpoint技术"><span class="toc-text">4. Checkpoint技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Checkout技术用于解决以下问题："><span class="toc-text">1. Checkout技术用于解决以下问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-LSN（Log-Sequece-Number）"><span class="toc-text">2. LSN（Log Sequece Number）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-InnoDB中有两种Checkpoint"><span class="toc-text">3. InnoDB中有两种Checkpoint</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Sharp-Checkpoint"><span class="toc-text">1. Sharp Checkpoint</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Fuzzy-Checkpoint"><span class="toc-text">2. Fuzzy Checkpoint</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Master-Thread工作方式"><span class="toc-text">5. Master Thread工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-InnoDB-1-0-x版本之前的Master-Thread"><span class="toc-text">1. InnoDB 1.0.x版本之前的Master Thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-InnoDB-1-2-x版本之前的Master-Thread"><span class="toc-text">2. InnoDB 1.2.x版本之前的Master Thread</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-MySQL体系结构和存储引擎"><span class="toc-text">第一章 MySQL体系结构和存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Mysql体系结构"><span class="toc-text">1. Mysql体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL存储引擎"><span class="toc-text">2. MySQL存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-InnoDB存储引擎"><span class="toc-text">1. InnoDB存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MyISAM存储引擎"><span class="toc-text">2. MyISAM存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-其他存储引擎"><span class="toc-text">3. 其他存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-其它"><span class="toc-text">4. 其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-连接MySQL"><span class="toc-text">3. 连接MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-TCP-IP"><span class="toc-text">1. TCP/IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-命名管道和共享内存"><span class="toc-text">2. 命名管道和共享内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-UNIX域套接字"><span class="toc-text">3. UNIX域套接字</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-InnoDB存储引擎"><span class="toc-text">第二章 InnoDB存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-InnoDB存储引擎概述"><span class="toc-text">1. InnoDB存储引擎概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-InnoDB存储引擎的版本"><span class="toc-text">2. InnoDB存储引擎的版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-InnoDB体系架构"><span class="toc-text">3. InnoDB体系架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-后台线程"><span class="toc-text">1. 后台线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-内存"><span class="toc-text">2. 内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-缓冲池"><span class="toc-text">1. 缓冲池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-LRU-List、Free-List和Flush-List"><span class="toc-text">2. LRU List、Free List和Flush List</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-重做日志缓冲"><span class="toc-text">3. 重做日志缓冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-额外的内存池"><span class="toc-text">4. 额外的内存池</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Checkpoint技术"><span class="toc-text">4. Checkpoint技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Checkout技术用于解决以下问题："><span class="toc-text">1. Checkout技术用于解决以下问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-LSN（Log-Sequece-Number）"><span class="toc-text">2. LSN（Log Sequece Number）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-InnoDB中有两种Checkpoint"><span class="toc-text">3. InnoDB中有两种Checkpoint</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Sharp-Checkpoint"><span class="toc-text">1. Sharp Checkpoint</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Fuzzy-Checkpoint"><span class="toc-text">2. Fuzzy Checkpoint</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Master-Thread工作方式"><span class="toc-text">5. Master Thread工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-InnoDB-1-0-x版本之前的Master-Thread"><span class="toc-text">1. InnoDB 1.0.x版本之前的Master Thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-InnoDB-1-2-x版本之前的Master-Thread"><span class="toc-text">2. InnoDB 1.2.x版本之前的Master Thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-InnoDB-1-2-x版本的Master-Thread"><span class="toc-text">3. InnoDB 1.2.x版本的Master Thread</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-InnoDB关键特性"><span class="toc-text">6. InnoDB关键特性</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -2199,16 +2197,81 @@ Last checkpoint at 92561351052</code></pre>
 }</code></pre>
 <h3 id="2-InnoDB-1-2-x版本之前的Master-Thread"><a href="#2-InnoDB-1-2-x版本之前的Master-Thread" class="headerlink" title="2. InnoDB 1.2.x版本之前的Master Thread"></a>2. InnoDB 1.2.x版本之前的Master Thread</h3><p>几个修改：</p>
 <ol>
-<li>1.0.x之前的版本其实对IO是有限制的（很多硬编码，比如刷新100个脏页到磁盘），在磁盘技术飞速发展的今天，当固态磁盘（SSD）出现时，这种规定在很大程度上限制了InnoDB存储引擎对磁盘IO的性能，尤其是写入性能。</li>
-</ol>
-<p>   从InnoDB1.0.x，InnoDB Plugin提供了参数innodb_io_capacity，用来表示磁盘IO的吞吐量，默认值为200，当用户使用了ssd或者磁盘做了RAID，存储设备拥有了更高的IO速度，就可以将innodb_io_capacity调高，直到符合磁盘IO吞吐量。规则如下：</p>
+<li><p>1.0.x之前的版本其实对IO是有限制的（很多硬编码，比如刷新100个脏页到磁盘），在磁盘技术飞速发展的今天，当固态磁盘（SSD）出现时，这种规定在很大程度上限制了InnoDB存储引擎对磁盘IO的性能，尤其是写入性能。<br>从InnoDB1.0.x，InnoDB Plugin提供了参数innodb_io_capacity，用来表示磁盘IO的吞吐量，默认值为200，当用户使用了ssd或者磁盘做了RAID，存储设备拥有了更高的IO速度，就可以将innodb_io_capacity调高，直到符合磁盘IO吞吐量。规则如下：</p>
 <ul>
-<li>在合并插入缓存时，合并插入缓存的数量为innodb_io_capacity值的5%<ul>
+<li>在合并插入缓存时，合并插入缓存的数量为innodb_io_capacity值的5%</li>
 <li>在从缓冲区刷新脏页时，刷新脏页的数量为innodb_io_capacity</li>
 </ul>
 </li>
+<li><p><code>innodb_max_dirty_pages_pct</code>默认值的问题，在1.0.x版本之前，该值的默认为90，意味着脏页占缓冲池的90%。因为InnoDB存储引擎在每秒刷新缓冲池和flush loop时会判断这个值，如果该值大于<code>innodb_max_dirty_pages_pct</code>才刷新100个脏页，如果有很大的内存，或者数据库服务的压力很大，这时刷新脏页的速度反而会降低，同样，数据库在恢复阶段可能需要更多的时间。1.0.x后<code>innodb_max_diry_pages_pct</code>默认值变为了75，这样既可以加快刷新脏页的频率，又能保证磁盘IO的负载。</p>
+</li>
+<li><p>新增参数<code>innodb_adaptive_flushing</code>，自适应刷新，该值影响每秒刷新脏页的数量。原来的规则时：脏页在缓冲池所占比例小于<code>innodb_max_diry_pages_pct</code>时，不刷新脏页；大于<code>innodb_max_diry_pages_pct</code>时，刷新100个脏页。随着<code>innodb_adaptive_flushing</code>的引入，InnoDB存储引擎会通过一个名为<code>buf_flush_get_desired_flush_rate</code>的函数来判断需要刷新脏页的最合适的数量。<code>buf_flush_get_desired_flush_rate</code>通过判断产生重做日志（redo log）的速度来决定最合适的刷新脏页的数量。因此当脏页的比例小于<code>innodb_max_diry_pages_pct</code>时，也会刷新一定数量的脏页。</p>
+</li>
+<li><p>之前每次进行full purge操作时，最多回收20个Undo页，从InnoDB1.0.x开始引入了参数<code>innodb_purge_batch_size</code>，该参数可以控制每次full purge回收的undu页的数量。该参数的默认值为20，并可以动态的对其进行修改。</p>
+<pre><code>   mysql&gt; show variables like &#39;innodb_purge_batch_size&#39;\G;
+   Variable_name: innodb_purge_batch_size
+   Value: 20
+   mysql&gt; set global innodb_purge_batch_size=50;
+   Query OK, 0 rows affected (0.00 sec)</code></pre></li>
+</ol>
+<p>综上，1.0.x版本开始，Master Thread伪代码如下：</p>
+<pre><code class="c">void master_thread() {
+   goto loop;
+loop:
+for(int i=0; i&lt;10; i++) {
+   thread_sleep(1) //sleep 1 second
+   do log buffer flush to disk
+   if(last_one_second_ios &lt; 5% innodb_io_capacity)
+      do merge 5% innodb_io_capacity insert buffer
+   if(buf_get_modified_ratio_pct &gt; innodb_max_dirty_pages_pct) {
+      do buffer pool flush 100% innodb_io_capacity dirty page
+   } else if enable adaptive flush {
+      do buffer pool flush desired amount dirty page
+   }
+   if(no user activity)
+      goto background loop
+}
+if (last_ten_second_ios &lt; innodb_io_capacity)
+   do buffer pool flush 100% innodb_io_capacity dirty page
+do merge 5% innodb_io_capacity insert buffer
+do log buffer flush to disk
+do full purge
+if(buf_get_modified_ratio_pct &gt; 70%)
+   do buffer pool flush 100% innodb_io_capacity dirty page
+else
+   do buffer pool flush 10% innodb_io_capacity dirty page
+goto loop
+background loop:
+do full purge
+do merge 100% innodb_io_capacity insert buffer
+if not idle:
+goto loop:
+else:
+   goto flush loop
+flush loop:
+do buffer pool flush 100% innodb_io_capacity dirty page
+if(buf_get_modified_ratio_pct &gt; innodb_max_dirty_pages_pct)
+   go to flush loop
+   goto suspend loop
+suspend loop:
+suspend_thread()
+waiting event
+goto loop;
+}</code></pre>
+<h3 id="3-InnoDB-1-2-x版本的Master-Thread"><a href="#3-InnoDB-1-2-x版本的Master-Thread" class="headerlink" title="3. InnoDB 1.2.x版本的Master Thread"></a>3. InnoDB 1.2.x版本的Master Thread</h3><p>在InnoDB1.2.x版本中再次对Master Thread进行了优化，由此可以看出Master Thread对性能所起到的关键作用。在1.2.x版本中，Master Thread的伪代码如下：</p>
+<pre><code class="c">if InnoDB is idle
+   srv_master_do_idle_tasks();
+else
+   srv_master_do_active_tasks();</code></pre>
+<p>其中<code>srv_master_do_idle_tasks()</code>就是之前版本中的每10秒的操作，<code>srv_master_do_active_tasks()</code>处理的是之前每秒中的操作。同时对于刷新脏页的操作，从Master Thread线程分离到一个单独的Page Cleaner Thread，从而减轻了Master Thread的工作，同时进一步提高了系统的并发性。</p>
+<h2 id="6-InnoDB关键特性"><a href="#6-InnoDB关键特性" class="headerlink" title="6. InnoDB关键特性"></a>6. InnoDB关键特性</h2><p>InnoDB的关键特性包括：</p>
+<ul>
+<li>插入缓冲（Insert Buffer）</li>
+<li>两次写（Double Write）</li>
+<li>自适应哈希索引（Adaptive Hash Index）</li>
+<li>异步IO（Async IO）</li>
+<li>刷新邻接页（Flush Neighbor Page）</li>
 </ul>
-<p>2. </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kongzheng1993@hotmail.com </span>
@@ -2223,10 +2286,10 @@ Last checkpoint at 92561351052</code></pre>
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>MySQL技术内幕读书笔记（持续更新）</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">8.6k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">9.4k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="evilRat">evilRat</a></p>
     <p><span class="copy-title">发布时间:</span>2021-01-22, 10:30:52</p>
-    <p><span class="copy-title">最后更新:</span>2021-03-24, 11:29:20</p>
+    <p><span class="copy-title">最后更新:</span>2021-04-02, 10:47:26</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2021/01/22/kongzheng1993-MySQL技术内幕读书笔记/" title="MySQL技术内幕读书笔记（持续更新）">https://kongzheng1993.github.io/2021/01/22/kongzheng1993-MySQL技术内幕读书笔记/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -2310,7 +2373,7 @@ Last checkpoint at 92561351052</code></pre>
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#oop','#float','#re','#servlet','#sample post','#images','#test','#String','#new','#catch，try','#oracle','#sys','#sqlplus','#sql','#select','#distinct','#group by','#order by','#java','#reflect','#Class','#对象，Class对象','#github','#hexo','#git','#linux','#ss','#console','#suse','#server','#FTP','#mysql','#备份','#mq','#消息队列','#Linux','#编码','#quartz','#锁','#分布式','#职业','#业务','#学习','#RSA','#SHA','#加密','#签名','#NIO BIO IO','#Java','#Guava','#jvm','#other','#MQ','#node.js','#resume','#简历','#jdk','#Web','#RocketMQ','#Mysql','#多线程','#SQL','#算法','#tools','#MySQL','#others','#Ohters','#maven','#AI','#vue','#blog','#JavaScript','#SpringBoot','#Spring','#JDK','#分页','#Windows','#网络','#Nginx','#并发','#安全',],
+            'data': ['#oop','#float','#servlet','#re','#sample post','#images','#test','#String','#new','#sys','#sqlplus','#sql','#catch，try','#select','#distinct','#group by','#order by','#oracle','#github','#hexo','#git','#suse','#server','#FTP','#linux','#ss','#console','#java','#reflect','#Class','#对象，Class对象','#编码','#mysql','#备份','#职业','#业务','#学习','#quartz','#锁','#分布式','#NIO BIO IO','#mq','#消息队列','#RSA','#SHA','#加密','#签名','#Guava','#Java','#jvm','#Linux','#other','#MQ','#Web','#node.js','#RocketMQ','#Mysql','#SQL','#多线程','#算法','#tools','#Ohters','#MySQL','#others','#blog','#maven','#AI','#resume','#简历','#jdk','#网络','#Nginx','#并发','#vue','#JavaScript','#Spring','#分页','#SpringBoot','#Windows','#JDK','#安全',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
